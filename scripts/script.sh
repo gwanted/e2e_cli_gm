@@ -13,7 +13,7 @@ echo
 
 CHANNEL_NAME="$1"
 : ${CHANNEL_NAME:="mychannel"}
-: ${TIMEOUT:="60"}
+: ${TIMEOUT:="600"}
 COUNTER=1
 MAX_RETRY=5
 ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
@@ -251,12 +251,12 @@ echo "Sending invoke transaction on org1/peer0..."
 chaincodeInvoke 0
 
 ## Install chaincode on Peer3/Org2
-echo "Installing chaincode on org2/peer3..."
-installChaincode 3
+#echo "Installing chaincode on org2/peer3..."
+#installChaincode 3
 
 #Query on chaincode on Peer3/Org2, check if the result is 90
-echo "Querying chaincode on org2/peer3..."
-chaincodeQuery 3 90
+#echo "Querying chaincode on org2/peer3..."
+#chaincodeQuery 3 90
 
 echo
 echo "===================== All GOOD, End-2-End execution completed ===================== "
