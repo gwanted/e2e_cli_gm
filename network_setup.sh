@@ -34,7 +34,7 @@ function validateArgs () {
 }
 
 function clearContainers () {
-        CONTAINER_IDS=$(docker ps | grep "dev\|zookeeper\|kafka\|peer[0-9]" | awk '{print $1}')
+        CONTAINER_IDS=$(docker ps -aq)
         if [ -z "$CONTAINER_IDS" -o "$CONTAINER_IDS" = " " ]; then
                 echo "---- No containers available for deletion ----"
         else
@@ -82,7 +82,7 @@ function networkDown () {
     removeUnwantedImages
 
     # remove orderer block and other channel configuration transactions and certs
-    #rm -rf channel-artifacts/*.block channel-artifacts/*.tx crypto-config
+#    rm -rf channel-artifacts/*.block channel-artifacts/*.tx crypto-config
 }
 
 validateArgs
